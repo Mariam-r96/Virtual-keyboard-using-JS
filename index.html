@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="style.css"> 
+            <link href="https://fonts.googleapis.com/css?family=Raleway:400,500&display=swap" rel="stylesheet">
+
+        <body>
+            <img src="abstract-2027962_640.png" class="bg">
+            <h1>Play your <span style="color: 	#912f60">MUSIC !</span></h1>
+            <div class="keys">
+                
+                <div data-key="65" class="key" data-note="C">
+                    <span class="sound">A</span>
+                </div>
+                <div data-key="83" class="key" data-note="D">
+                    <span class="sound">S</span>
+                </div>
+                <div data-key="68" class="key" data-note="E">
+                <!-- <kbd>D</kbd> -->
+                    <span class="sound">D</span>
+                </div>
+                <div data-key="70" class="key" data-note="F">
+                <!-- <kbd>F</kbd> -->
+                    <span class="sound">F</span>
+                </div>   
+                <div data-key="71" class="key" data-note="G">
+                <!-- <kbd>G</kbd> -->
+                   <span class="sound">G</span>
+                </div>
+                <div data-key="72" class="key" data-note="A">
+                <!-- <kbd>H</kbd> -->
+                    <span class="sound">H</span>
+                </div>
+                <div data-key="74" class="key" data-note="B">
+                <!-- <kbd>J</kbd> -->
+                    <span class="sound">J</span>
+                </div>
+                <div data-key="75" class="key" data-note="C">
+                    <!-- <kbd>K</kbd> -->
+                <span class="sound">K</span>
+                </div>
+                <div data-key="87" class="keySharp" data-note="C#">
+                <!-- <kbd>K</kbd> -->
+                    <span class="sound">W</span>
+                </div>
+                <div data-key="69" class="keySharp" data-note="D#">
+                <!-- <kbd>K</kbd> -->
+                    <span class="sound">E</span>
+                </div>
+                <div data-key="84" class="keySharp" data-note="F#">
+                <!-- <kbd>K</kbd> -->
+                    <span class="sound">T</span>
+                </div>
+                <div data-key="89" class="keySharp" data-note="G#">
+                <!-- <kbd>K</kbd> -->
+                    <span class="sound">Y</span>
+                </div>
+                <div data-key="85" class="keySharp" data-note="A#">
+                <!-- <kbd>K</kbd> -->
+                    <span class="sound">U</span>
+                </div>
+                <div data-key="79" class="keySharp" data-note="C#">
+                <!-- <kbd>K</kbd> -->
+                    <span class="sound">O</span>
+                </div>
+
+                <div class="note"><b>Note : </b></div>
+
+            </div>
+
+            <audio data-key="65" src="http://carolinegabriel.com/demo/js-keyboard/sounds/040.wav"></audio>
+            <audio data-key="83" src="http://carolinegabriel.com/demo/js-keyboard/sounds/042.wav"></audio>
+            <audio data-key="68" src="http://carolinegabriel.com/demo/js-keyboard/sounds/044.wav"></audio>
+            <audio data-key="70" src="http://carolinegabriel.com/demo/js-keyboard/sounds/045.wav"></audio>
+            <audio data-key="71" src="http://carolinegabriel.com/demo/js-keyboard/sounds/047.wav"></audio>
+            <audio data-key="72" src="http://carolinegabriel.com/demo/js-keyboard/sounds/049.wav"></audio>
+            <audio data-key="74" src="http://carolinegabriel.com/demo/js-keyboard/sounds/051.wav"></audio>
+            <audio data-key="75" src="http://carolinegabriel.com/demo/js-keyboard/sounds/052.wav"></audio>
+            <audio data-key="87" src="http://carolinegabriel.com/demo/js-keyboard/sounds/041.wav"></audio>
+            <audio data-key="69" src="http://carolinegabriel.com/demo/js-keyboard/sounds/043.wav"></audio>
+            <audio data-key="84" src="http://carolinegabriel.com/demo/js-keyboard/sounds/046.wav"></audio>
+            <audio data-key="89" src="http://carolinegabriel.com/demo/js-keyboard/sounds/048.wav"></audio>
+            <audio data-key="85" src="http://carolinegabriel.com/demo/js-keyboard/sounds/050.wav"></audio>
+            <audio data-key="79" src="http://carolinegabriel.com/demo/js-keyboard/sounds/053.wav"></audio>
+           
+            
+
+            <script>
+                   window.addEventListener("keydown",playSound);
+                   
+                   let displayNote = document.querySelector(".note");
+
+                   function playSound(e){
+                     
+                    let audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+                    
+                    //HOVERING WHITE KEYS
+                    if(document.querySelector(`.key[data-key="${e.keyCode}"]`)){
+                        key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+                        key.classList.add("hover_white");
+
+                        let keyNote = key.getAttribute("data-note");
+                        displayNote.innerHTML = `<b> Note : ' ${keyNote} '</b>` ;
+                       
+                    }
+                   //HOVERING BLACK KEYS
+                    else if(document.querySelector(`.keySharp[data-key="${e.keyCode}"]`)){
+                        keySharp = document.querySelector(`.keySharp[data-key="${e.keyCode}"]`);
+                        keySharp.classList.add("hover_black");
+                        let sharpNote = keySharp.getAttribute("data-note");
+                        displayNote.innerHTML =  `<b> Note : ' ${sharpNote} '</b>` ;
+                    }
+
+                     console.log(e.keyCode)
+
+                     //PLAYING THE MUSIC
+                     audio.currentTime = 0;
+                     audio.play();
+
+                   }  
+
+                   //REMOVING HOVER EFFECT
+                   window.addEventListener("keyup",function(e){
+
+                    // REMOVING HOVER FOR WHITE KEYS
+                    if(document.querySelector(`.key[data-key="${e.keyCode}"]`)){
+                    key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+                    key.classList.remove("hover_white");
+                    }
+                    // REMOVING HOVER FOR BLACK KEYS
+                    else if(document.querySelector(`.keySharp[data-key="${e.keyCode}"]`)){
+                    keySharp = document.querySelector(`.keySharp[data-key="${e.keyCode}"]`);
+                    keySharp.classList.remove("hover_black");
+                   }
+                   })
+                   
+            </script>
+        </body>
+    </head>
+</html>

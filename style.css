@@ -1,0 +1,115 @@
+h1{
+    position: absolute;
+    top: 311px;
+    left: 853px;
+    font-family: 'Raleway', sans-serif;
+    color:#3b7388;
+}
+.bg{
+    position: relative;
+    left: 598px;
+    top: 157px;
+    height: 630px;
+    width: 742px;
+}
+.keys{
+    position: relative;
+    display: flex;
+    width: 306px;
+    height: 118px;
+    /* background-color: grey; */
+    top: -85px;
+    left: 811px;
+    border-radius: 15px;
+    /* box-shadow: 0px 10px; */
+}
+
+.key{
+    /* position: absolute; */
+    padding: 12px;
+    padding-top: 90px;
+    border-radius: 5px;
+    border: 2px solid black;
+    height: 20px;
+    background-color:white; 
+    box-shadow: 1px 4px;
+}
+
+.keySharp{
+    position: relative;
+    padding: 6px;
+    padding-top: 36px;
+    color: white;
+    background-color: black;
+    border: 2px solid black;
+    height: 24px;
+    margin: 13px;
+    left: -292px;
+    top: -14px;
+    border-radius: 5px;
+}
+
+.hover_white{
+    padding: 12px;
+    padding-top: 90px;
+    border-radius: 5px;
+    border: 2px solid #b61f45;
+    height: 20px;
+    background-color:#9c3569; 
+    box-shadow: 1px 4px	#3b7388;
+    color: white;
+}
+
+.hover_black{
+    position: relative;
+    padding: 6px;
+    padding-top: 36px;
+    color: white;
+    background-color: #912f60;
+    border: 2px solid #3b7388;
+    height: 24px;
+    margin: 13px;
+    left: -292px;
+    top: -14px;
+    border-radius: 5px;
+}
+
+.note{
+    position: absolute;
+    top: 165px;
+    left: 110px;
+    border-radius: 6px;
+    /* background-color: black; */
+    border:4px solid #912f60;
+    color: #912f60;
+    width: 90px;
+    height: 30px;
+    padding-top: 9px;
+    padding-left: 9px;
+    opacity: 0.85;
+    font-family: 'Raleway', sans-serif;
+    
+
+}
+
+.keySharp[data-key="87"] {
+    left: -295px;
+  }
+
+.keySharp[data-key="69"] {
+    left: -313px;
+  }
+
+  .keySharp[data-key="84"] {
+    left: -288px;
+  }
+  .keySharp[data-key="89"] {
+    left: -301px;
+  }
+  .keySharp[data-key="85"] {
+    left: -281px;
+  }
+
+  .keySharp[data-key="79"] {
+    left: -296px;
+  }
